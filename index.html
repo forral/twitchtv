@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Twitch TV</title>
+</head>
+<body>
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous">
+  </script>
+  <script>
+  	// https://wind-bow.glitch.me/
+		$.getJSON('https://wind-bow.gomix.me/twitch-api/users/GbossTheGamer?callback=?', function(data) {
+		  console.log(data);
+		});
+
+		var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+
+  </script>
+</body>
+</html>
