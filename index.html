@@ -13,7 +13,6 @@
 	  crossorigin="anonymous">
   </script>
   <script>
-
   	var outter = document.getElementById('out');
 
 		// Array of Twitch Channels Names 
@@ -25,12 +24,12 @@
 
 					if (data.stream) {
 
-						console.log(data.stream);
+						console.log(data.stream.channel.display_name);
 					} else {
 
 						$.getJSON('https://wind-bow.gomix.me/twitch-api/channels/' + channel + '?callback=?', function(data) {
-
-							console.log(data);
+							appendDivChannelElement(data);
+							console.log(data.display_name);
 						});
 					}
 			});
@@ -43,7 +42,6 @@
 
 		// do something in each API Data
 		function appendDivChannelElement(data) {
-			console.log(data);
 
 			var divChannelElement = document.createElement('div');
 			divChannelElement.className = 'channel';
@@ -52,7 +50,7 @@
 			divLogoElement.className = 'logo';
 
 			var logoImageElement = document.createElement('img');
-			logoImageElement.src = data.logo;
+			logoImageElement.src = data.logo; // <-- if else this data
 
 			divLogoElement.appendChild(logoImageElement);
 			divChannelElement.appendChild(divLogoElement);
@@ -61,13 +59,13 @@
 			divStreamInfoElement.className = 'stream-info';
 
 			var titleElement = document.createElement('h3');
-			titleElement.textContent = data.display_name;
+			titleElement.textContent = data.display_name; // <-- if else this data
 			var statusElement = document.createElement('span');
 			// put here que status information
 			titleElement.appendChild(statusElement);
 
 			var streamDetailsElement = document.createElement('p');
-			streamDetailsElement.textContent = data.status;
+			streamDetailsElement.textContent = data.status; // <-- if else this data
 
 			divStreamInfoElement.appendChild(titleElement);
 			divStreamInfoElement.appendChild(streamDetailsElement);
