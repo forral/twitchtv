@@ -21,8 +21,18 @@
 
 		// Call to Twitch API to GET info of an Channel
 		var callChannelAPI = function (channel) {
-			$.getJSON('https://wind-bow.gomix.me/twitch-api/channels/' + channel + '?callback=?', function(data) {
-				appendDivChannelElement(data);
+			$.getJSON('https://wind-bow.gomix.me/twitch-api/streams/' + channel + '?callback=?', function(data) {
+
+					if (data.stream) {
+
+						console.log(data.stream);
+					} else {
+
+						$.getJSON('https://wind-bow.gomix.me/twitch-api/channels/' + channel + '?callback=?', function(data) {
+
+							console.log(data);
+						});
+					}
 			});
 		};
 
