@@ -24,13 +24,16 @@
 
 					if (data.stream) {
 
-						console.log(data.stream.channel.display_name);
+						appendDivChannelElement(data);
+						console.log(data);
+
 					} else {
 
 						$.getJSON('https://wind-bow.gomix.me/twitch-api/channels/' + channel + '?callback=?', function(data) {
 							appendDivChannelElement(data);
 							console.log(data.display_name);
 						});
+						
 					}
 			});
 		};
@@ -64,20 +67,27 @@
 			var titleElement = document.createElement('h3');
 			var statusElement = document.createElement('span');
 			var streamDetailsElement = document.createElement('p');
+			var textNode;
 
+			if (data.stream) {
 
-			logoImageElement.src = data.logo; // <-- if else this data
+				logoImageElement.src = data.stream.channel.logo;
+				statusElement.textContent = 'ONLINE ';
+				textNode = document.createTextNode(data.stream.channel.display_name);
+				streamDetailsElement.textContent = data.stream.game;
 
-			statusElement.textContent = '* '; // <-- if else this data
-			var textNode = document.createTextNode(data.display_name); // <-- if else this data
-			streamDetailsElement.textContent = data.status; // <-- if else this data
+			} else {
 
+				logoImageElement.src = data.logo;
+				statusElement.textContent = 'offline ';
+				textNode = document.createTextNode(data.display_name);
+				streamDetailsElement.textContent = data.status;
 
+			}
 
 			titleElement.appendChild(statusElement);
 			titleElement.appendChild(textNode);
 			
-
 			divLogoElement.appendChild(logoImageElement);
 			divChannelElement.appendChild(divLogoElement);
 
