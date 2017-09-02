@@ -33,7 +33,7 @@
 							appendDivChannelElement(data);
 							console.log(data.display_name);
 						});
-						
+
 					}
 			});
 		};
@@ -72,14 +72,14 @@
 			if (data.stream) {
 
 				logoImageElement.src = data.stream.channel.logo;
-				statusElement.textContent = 'ONLINE ';
+				statusElement.className = 'online';
 				textNode = document.createTextNode(data.stream.channel.display_name);
 				streamDetailsElement.textContent = data.stream.game;
 
 			} else {
 
 				logoImageElement.src = data.logo;
-				statusElement.textContent = 'offline ';
+				statusElement.className = 'offline ';
 				textNode = document.createTextNode(data.display_name);
 				streamDetailsElement.textContent = data.status;
 

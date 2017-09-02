@@ -93,3 +93,27 @@ table {
   width: 89%;
   padding: 5px 0 5px 5px;
 }
+
+.online:before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #00a312;
+  position: relative;
+  border-radius: 50%;
+  left: -4px;
+  top: -1px;
+}
+
+.offline:before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid grey;
+  position: relative;
+  border-radius: 50%;
+  left: -4px;
+  top: -1px;
+}
