@@ -43,29 +43,43 @@
 		// do something in each API Data
 		function appendDivChannelElement(data) {
 
+			// Create master Div and add the channel class to it.
 			var divChannelElement = document.createElement('div');
 			divChannelElement.className = 'channel';
 
+			//--------//
+
+			// Create the logo div container and give the logo class to it
 			var divLogoElement = document.createElement('div');
 			divLogoElement.className = 'logo';
 
+			// Create the img element
 			var logoImageElement = document.createElement('img');
-			logoImageElement.src = data.logo; // <-- if else this data
-
-			divLogoElement.appendChild(logoImageElement);
-			divChannelElement.appendChild(divLogoElement);
+			
+			//--------//
 
 			var divStreamInfoElement = document.createElement('div');
 			divStreamInfoElement.className = 'stream-info';
 
 			var titleElement = document.createElement('h3');
-			titleElement.textContent = data.display_name; // <-- if else this data
 			var statusElement = document.createElement('span');
-			// put here que status information
-			titleElement.appendChild(statusElement);
-
 			var streamDetailsElement = document.createElement('p');
+
+
+			logoImageElement.src = data.logo; // <-- if else this data
+
+			statusElement.textContent = '* '; // <-- if else this data
+			var textNode = document.createTextNode(data.display_name); // <-- if else this data
 			streamDetailsElement.textContent = data.status; // <-- if else this data
+
+
+
+			titleElement.appendChild(statusElement);
+			titleElement.appendChild(textNode);
+			
+
+			divLogoElement.appendChild(logoImageElement);
+			divChannelElement.appendChild(divLogoElement);
 
 			divStreamInfoElement.appendChild(titleElement);
 			divStreamInfoElement.appendChild(streamDetailsElement);
