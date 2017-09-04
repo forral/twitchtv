@@ -71,15 +71,14 @@
 
 			if (data.stream) {
 
-				logoImageElement.src = data.stream.channel.logo;
+				logoImageElement.src = imgSource(data.stream.channel.logo);
 				statusElement.className = 'online';
 				textNode = document.createTextNode(data.stream.channel.display_name);
 				streamDetailsElement.textContent = data.stream.game;
 
 			} else {
 
-				logoImageElement.src = data.logo;
-				statusElement.className = 'offline ';
+				logoImageElement.src = imgSource(data.logo);
 				textNode = document.createTextNode(data.display_name);
 				streamDetailsElement.textContent = data.status;
 
@@ -97,6 +96,11 @@
 			divChannelElement.appendChild(divStreamInfoElement);
 
 			outter.appendChild(divChannelElement);
+		}
+
+		// cheking if a channel has a logo image, if not return an placeholder
+		function imgSource(data){
+			return data ? data : 'http://via.placeholder.com/100x100';
 		}
 
   </script>
