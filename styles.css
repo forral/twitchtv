@@ -94,6 +94,10 @@ table {
   padding: 5px 0 5px 5px;
 }
 
+.stream-info h3, .stream-info p {
+  padding-left: 20px;
+}
+
 .online:before {
   content: '';
   display: inline-block;
