@@ -98,6 +98,11 @@ table {
   padding-left: 20px;
 }
 
+.stream-info h3 {
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
 .online:before {
   content: '';
   display: inline-block;
