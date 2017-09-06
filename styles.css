@@ -103,6 +103,10 @@ table {
   padding-bottom: 5px;
 }
 
+.si-offline {
+  color: lightgrey;
+}
+
 .online:before {
   content: '';
   display: inline-block;

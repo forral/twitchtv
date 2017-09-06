@@ -82,10 +82,10 @@
 
 				console.log(linkElement);
 
-				titleElement.appendChild(statusElement);
-				titleElement.appendChild(textNode);
+				// titleElement.appendChild(statusElement);
+				// titleElement.appendChild(textNode);
 
-				linkElement.appendChild(titleElement);
+				// linkElement.appendChild(titleElement);
 
 			} else {
 
@@ -93,13 +93,14 @@
 				statusElement.className = 'offline';
 				textNode = document.createTextNode(data.display_name);
 				streamDetailsElement.textContent = 'offline';
+				divStreamInfoElement.classList.add('si-offline');
 
-				titleElement.appendChild(statusElement);
-				titleElement.appendChild(textNode);
+				// titleElement.appendChild(statusElement);
+				// titleElement.appendChild(textNode);
 			}
 
-			// titleElement.appendChild(statusElement);
-			// titleElement.appendChild(textNode);
+			titleElement.appendChild(statusElement);
+			titleElement.appendChild(textNode);
 			
 			divLogoElement.appendChild(logoImageElement);
 			divChannelElement.appendChild(divLogoElement);
