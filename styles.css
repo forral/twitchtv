@@ -89,6 +89,10 @@ table {
   display: block;
 }
 
+.img-offline {
+  filter: grayscale(100%);
+}
+
 .stream-info {
   width: 89%;
   padding: 5px 0 5px 5px;

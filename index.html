@@ -90,6 +90,7 @@
 			} else {
 
 				logoImageElement.src = imgSource(data.logo);
+				logoImageElement.classList.add('img-offline');
 				statusElement.className = 'offline';
 				textNode = document.createTextNode(data.display_name);
 				streamDetailsElement.textContent = 'offline';
