@@ -50,54 +50,39 @@
 			var divChannelElement = document.createElement('div');
 			divChannelElement.className = 'channel';
 
-			//--------//
-
 			// Create the logo div container and give the logo class to it
 			var divLogoElement = document.createElement('div');
 			divLogoElement.className = 'logo';
 
 			// Create the img element
 			var logoImageElement = document.createElement('img');
-			
-			//--------//
 
 			var divStreamInfoElement = document.createElement('div');
 			divStreamInfoElement.className = 'stream-info';
 
-			var titleElement = document.createElement('h3');
-
-			var linkElement = document.createElement('a'); // <---- link
-
 			var statusElement = document.createElement('span');
 			var streamDetailsElement = document.createElement('p');
-			var textNode;
+			var textNode, titleElement;
 
 			if (data.stream) {
 
 				logoImageElement.src = imgSource(data.stream.channel.logo);
 				statusElement.className = 'online';
-				linkElement.href = data.stream.channel.url;
+				titleElement = document.createElement('a');
+				titleElement.href = data.stream.channel.url;
 				textNode = document.createTextNode(data.stream.channel.display_name);
 				streamDetailsElement.textContent = data.stream.channel.status;
-
-				console.log(linkElement);
-
-				// titleElement.appendChild(statusElement);
-				// titleElement.appendChild(textNode);
-
-				// linkElement.appendChild(titleElement);
 
 			} else {
 
 				logoImageElement.src = imgSource(data.logo);
 				logoImageElement.classList.add('img-offline');
 				statusElement.className = 'offline';
+				titleElement = document.createElement('h3');
 				textNode = document.createTextNode(data.display_name);
 				streamDetailsElement.textContent = 'offline';
 				divStreamInfoElement.classList.add('si-offline');
 
-				// titleElement.appendChild(statusElement);
-				// titleElement.appendChild(textNode);
 			}
 
 			titleElement.appendChild(statusElement);

@@ -65,6 +65,10 @@ table {
           box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 #out {
   width: 960px;
   margin: 0 auto;
@@ -89,6 +93,7 @@ table {
   display: block;
 }
 
+/* http://thenewcode.com/532/Convert-Images-To-Black-And-White-With-CSS */
 .img-offline {
   filter: grayscale(100%);
 }
@@ -98,13 +103,21 @@ table {
   padding: 5px 0 5px 5px;
 }
 
-.stream-info h3, .stream-info p {
+.stream-info h3, 
+.stream-info a, 
+.stream-info p {
   padding-left: 20px;
 }
 
-.stream-info h3 {
+.stream-info h3,  
+.stream-info a {
   font-size: 18px;
   padding-bottom: 5px;
+}
+
+.stream-info p {
+  font-size: 15px;
+
 }
 
 .si-offline {
