@@ -12,6 +12,7 @@
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	  crossorigin="anonymous">
   </script>
+  <script src="template.js"></script>
   <script>
   	var outter = document.getElementById('out');
 
@@ -66,15 +67,27 @@
 
 			if (data.stream) {
 
+				console.log(channelDivEl(data));
 				logoImageElement.src = imgSource(data.stream.channel.logo);
 				statusElement.className = 'online';
 				titleElement = document.createElement('a');
 				titleElement.href = data.stream.channel.url;
 				textNode = document.createTextNode(data.stream.channel.display_name);
+
+				var streamTitle = createStreamInfo(data.stream.game, 'Game');
+				var streamDate = createStreamInfo(data.stream.game, 'Date');
+				var streamViewers = createStreamInfo(data.stream.game, 'Viewers');
+
+				var ulStreamEl = document.createElement('ul');
+				ulStreamEl.appendChild(streamTitle);
+				ulStreamEl.appendChild(streamDate);
+				ulStreamEl.appendChild(streamViewers);
+
 				streamDetailsElement.textContent = data.stream.channel.status;
 
 			} else {
 
+				console.log(channelOfflineEl(data));
 				logoImageElement.src = imgSource(data.logo);
 				logoImageElement.classList.add('img-offline');
 				statusElement.className = 'offline';
@@ -93,16 +106,14 @@
 
 			divStreamInfoElement.appendChild(titleElement);
 			divStreamInfoElement.appendChild(streamDetailsElement);
+			// divStreamInfoElement.appendChild(ulStreamEl);
 
 			divChannelElement.appendChild(divStreamInfoElement);
 
 			outter.appendChild(divChannelElement);
 		}
 
-		// cheking if a channel has a logo image, if not return an placeholder
-		function imgSource(data){
-			return data ? data : 'http://via.placeholder.com/100x100';
-		}
+
 
   </script>
 </body>
