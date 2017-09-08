@@ -60,8 +60,8 @@ function channelDivEl(data) {
 		divStreamContentEl.appendChild(streamDetailsElement);
 
 		var streamTitle = createStreamInfo(data.stream.game, 'Game');
-		var streamDate = createStreamInfo(data.stream.game, 'Date');
-		var streamViewers = createStreamInfo(data.stream.game, 'Viewers');
+		var streamDate = createStreamInfo(data.stream.created_at, 'Date');
+		var streamViewers = createStreamInfo(data.stream.viewers, 'Viewers');
 
 		var ulStreamEl = document.createElement('ul');
 		ulStreamEl.appendChild(streamTitle);
