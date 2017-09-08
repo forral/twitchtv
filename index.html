@@ -46,70 +46,8 @@
 
 		// do something in each API Data
 		function appendDivChannelElement(data) {
-
-			// Create master Div and add the channel class to it.
-			var divChannelElement = document.createElement('div');
-			divChannelElement.className = 'channel';
-
-			// Create the logo div container and give the logo class to it
-			var divLogoElement = document.createElement('div');
-			divLogoElement.className = 'logo';
-
-			// Create the img element
-			var logoImageElement = document.createElement('img');
-
-			var divStreamInfoElement = document.createElement('div');
-			divStreamInfoElement.className = 'stream-info';
-
-			var statusElement = document.createElement('span');
-			var streamDetailsElement = document.createElement('p');
-			var textNode, titleElement;
-
-			if (data.stream) {
-
-				console.log(channelDivEl(data));
-				logoImageElement.src = imgSource(data.stream.channel.logo);
-				statusElement.className = 'online';
-				titleElement = document.createElement('a');
-				titleElement.href = data.stream.channel.url;
-				textNode = document.createTextNode(data.stream.channel.display_name);
-
-				var streamTitle = createStreamInfo(data.stream.game, 'Game');
-				var streamDate = createStreamInfo(data.stream.game, 'Date');
-				var streamViewers = createStreamInfo(data.stream.game, 'Viewers');
-
-				var ulStreamEl = document.createElement('ul');
-				ulStreamEl.appendChild(streamTitle);
-				ulStreamEl.appendChild(streamDate);
-				ulStreamEl.appendChild(streamViewers);
-
-				streamDetailsElement.textContent = data.stream.channel.status;
-
-			} else {
-
-				logoImageElement.src = imgSource(data.logo);
-				logoImageElement.classList.add('img-offline');
-				statusElement.className = 'offline';
-				titleElement = document.createElement('h3');
-				textNode = document.createTextNode(data.display_name);
-				streamDetailsElement.textContent = 'offline';
-				divStreamInfoElement.classList.add('si-offline');
-
-			}
-
-			titleElement.appendChild(statusElement);
-			titleElement.appendChild(textNode);
-			
-			divLogoElement.appendChild(logoImageElement);
-			divChannelElement.appendChild(divLogoElement);
-
-			divStreamInfoElement.appendChild(titleElement);
-			divStreamInfoElement.appendChild(streamDetailsElement);
-			// divStreamInfoElement.appendChild(ulStreamEl);
-
-			divChannelElement.appendChild(divStreamInfoElement);
-
-			outter.appendChild(divChannelElement);
+			var currentDivEl = channelDivEl(data);
+			outter.appendChild(currentDivEl);
 		}
 
 

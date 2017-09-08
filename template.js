@@ -69,25 +69,23 @@ function channelDivEl(data) {
 		ulStreamEl.appendChild(streamViewers);
 
 		divStreamContentEl.appendChild(ulStreamEl);
-		
+
 	} else {
 
 		logoImageElement.src = imgSource(data.logo);
 		logoImageElement.classList.add('img-offline');
-		
 
-		// statusElement.className = 'offline';
-		// titleElement = document.createElement('h3');
-		// textNode = document.createTextNode(data.display_name);
-		// streamDetailsElement.textContent = 'offline';
-		// divStreamInfoElement.classList.add('si-offline');
+		statusElement.className = 'offline';
+		titleElement = document.createElement('h3');
+		textNode = document.createTextNode(data.display_name);
+		streamDetailsElement.textContent = 'offline';
+		divStreamInfoElement.classList.add('si-offline');
 
-		// titleElement.appendChild(statusElement);
-		// titleElement.appendChild(textNode);
+		titleElement.appendChild(statusElement);
+		titleElement.appendChild(textNode);
 
-		// streamInfoContent.appendChild(statusElement);
-		// streamInfoContent.appendChild(statusElement);
-
+		divStreamContentEl.appendChild(titleElement);
+		divStreamContentEl.appendChild(streamDetailsElement);
 	}
 
 	// append image to the logo div
