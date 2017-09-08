@@ -68,6 +68,9 @@ table {
 body {
   background-color: #f5f5f5;
    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -107,7 +110,7 @@ header h1 {
 
 .logo {
   width: 10%;
-  padding: 5px 0 5px 5px;
+  padding: 15px 0 15px 15px;
 }
 
 .logo img {
@@ -122,12 +125,7 @@ header h1 {
 
 .stream-info {
   width: 89%;
-  padding: 5px 0 5px 5px;
-}
-
-.stream-info h3, 
-.stream-info a, 
-.stream-info p {
+  padding: 15px 0 15px 5px;
 }
 
 .stream-info h3,  
@@ -178,4 +176,22 @@ header h1 {
   border-radius: 50%;
   left: -4px;
   top: -1px;
+}
+
+footer {
+  height: 20px;
+}
+
+.filter {
+  text-align: center;
+}
+
+.filter li {
+  display: inline;
+}
+
+.filter li a {
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
 }
