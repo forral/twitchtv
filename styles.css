@@ -65,17 +65,39 @@ table {
           box-sizing: border-box;
 }
 
+body {
+  background-color: #f5f5f5;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 a {
   text-decoration: none;
 }
 
-#out {
-  width: 960px;
-  margin: 0 auto;
+#twitch-tv-app {
+  position: relative;
+  width: 550px;
+  margin: 130px auto 40px auto;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 
+              0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+header {
+  
+}
+
+header h1 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 100;
+  top: -60px;
 }
 
 .channel {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #ededed;
 }
 
 .logo, .stream-info {

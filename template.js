@@ -101,5 +101,3 @@ function channelDivEl(data) {
 
 	return divChannelElement;
 }
-
-
