@@ -6,8 +6,6 @@ function createElWithClass(el, className) {
 
 function createStreamInfo(data, title) {
 
-	var ulEl = document.createElement('ul');
-
 	var liElGame = document.createElement('li');
 	var spanGame = document.createElement('span');
 	var textGame = document.createTextNode(title + ': ');
@@ -27,6 +25,8 @@ function imgSource(data){
 
 function channelDivEl(data) {
 
+	var textNode, titleElement;
+
 	var divChannelElement = createElWithClass('div', 'channel');
 	// Create the logo div container and give the logo class to it
 	var divLogoElement = createElWithClass('div', 'logo');
@@ -41,8 +41,6 @@ function channelDivEl(data) {
 	var statusElement = document.createElement('span');
 	// Create the subtitle element
 	var streamDetailsElement = document.createElement('p');
-
-	var textNode, titleElement;
 
 	// check if the channel is online
 	if (data.stream) {
@@ -61,21 +59,21 @@ function channelDivEl(data) {
 		divStreamContentEl.appendChild(titleElement);
 		divStreamContentEl.appendChild(streamDetailsElement);
 
-		// var streamTitle = createStreamInfo(data.stream.game, 'Game');
-		// var streamDate = createStreamInfo(data.stream.game, 'Date');
-		// var streamViewers = createStreamInfo(data.stream.game, 'Viewers');
+		var streamTitle = createStreamInfo(data.stream.game, 'Game');
+		var streamDate = createStreamInfo(data.stream.game, 'Date');
+		var streamViewers = createStreamInfo(data.stream.game, 'Viewers');
 
-		// var ulStreamEl = document.createElement('ul');
-		// ulStreamEl.appendChild(streamTitle);
-		// ulStreamEl.appendChild(streamDate);
-		// ulStreamEl.appendChild(streamViewers);
+		var ulStreamEl = document.createElement('ul');
+		ulStreamEl.appendChild(streamTitle);
+		ulStreamEl.appendChild(streamDate);
+		ulStreamEl.appendChild(streamViewers);
 
-
+		divStreamContentEl.appendChild(ulStreamEl);
+		
 	} else {
 
-		// console.log(channelOfflineEl(data));
-		// logoImageElement.src = imgSource(data.logo);
-		// logoImageElement.classList.add('img-offline');
+		logoImageElement.src = imgSource(data.logo);
+		logoImageElement.classList.add('img-offline');
 		
 
 		// statusElement.className = 'offline';
