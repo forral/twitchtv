@@ -186,12 +186,12 @@ header h1 {
   top: -1px;
 }
 
-footer {
+#footer {
   color: #777;
   padding: 10px 15px 10px 15px;
 }
 
-footer:before {
+#footer:before {
   content: '';
   position: absolute;
   right: 0;
@@ -216,4 +216,10 @@ footer:before {
   margin: 3px;
   padding: 3px 7px;
   text-decoration: none;
+}
+
+#info {
+  margin: 65px auto 30px auto;
+  text-align: center;
+  font-size: 10px;
 }
