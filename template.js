@@ -1,3 +1,15 @@
+
+
+
+function store(namespace, data) {
+	if (arguments.length > 1) {
+		return localStorage.setItem(namespace, JSON.stringify(data));
+	} else {
+		var store = localStorage.getItem(namespace);
+		return (store && JSON.parse(store)) || {numbOfArticles: 10, searchHistory: [], widget: false, darkTheme: false};
+	}
+}
+
 function createElWithClass(el, className) {
 	var element = document.createElement(el);
 	element.classList.add(className);
