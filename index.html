@@ -12,7 +12,8 @@
 			<h1>Twitch TV FCC Challenge</h1>
 		</header>
 		<section id="main">
-			<div id="out"></div>
+			<div id="out">
+			</div>
 		</section>
 		<footer id="footer">
 			<ul class="filter">
@@ -47,17 +48,14 @@
 					if (data.stream) {
 						appendDivChannelElement(data);
 						store(channel, data);
-						console.log(data);
 					} else {
 						$.getJSON('https://wind-bow.gomix.me/twitch-api/channels/' + channel + '?callback=?', function(data) {
 							appendDivChannelElement(data);
 							store(channel, data);
-							console.log(data);
 						});
 
 					}
 			});
-
 		};
 
 		// Call the Twitch API for all the channels store in the channels array

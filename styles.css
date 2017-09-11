@@ -79,13 +79,13 @@ a {
   color: #6441a5;
 }
 
-a:visited, 
+/*a:visited,
 a:hover, 
 a:focus, 
 a:active { 
   text-decoration: none;
   color: #6441a5;
-}
+}*/
 
 #twitch-tv-app {
   position: relative;
@@ -188,7 +188,6 @@ header h1 {
 }
 
 #footer {
-  color: #777;
   padding: 10px 15px 10px 15px;
 }
 
@@ -216,7 +215,10 @@ header h1 {
 .filter li a {
   margin: 3px;
   padding: 3px 7px;
-  text-decoration: none;
+}
+
+.filter li a:hover {
+  color: red;
 }
 
 #info {
@@ -224,3 +226,4 @@ header h1 {
   text-align: center;
   font-size: 10px;
 }
+
