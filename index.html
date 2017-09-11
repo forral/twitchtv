@@ -58,16 +58,39 @@
 			});
 		};
 
-		// Call the Twitch API for all the channels store in the channels array
-		channels.forEach(function(channel) {
-			callChannelAPI(channel);
-		});
+
+		function init(){
+			outter.innerHTML = '';
+			// Call the Twitch API for all the channels store in the channels array
+			channels.forEach(function(channel) {
+				callChannelAPI(channel);
+			});
+		}
+
+		init();
 
 		// do something in each API Data
 		function appendDivChannelElement(data) {
 			var currentDivEl = channelDivEl(data);
 			outter.appendChild(currentDivEl);
 		}
+
+		var footerButtons = document.querySelectorAll('.filter li a');
+		var allButton = footerButtons[0];
+		var onlineButton = footerButtons[1];
+
+		allButton.addEventListener('click', init);
+
+		onlineButton.addEventListener('click', function(){
+			outter.innerHTML = '';
+
+			//check the online channels on localStorage
+			for (var i = 0; i < channels.length; i++) {
+				if(store(channels[i]).stream !== undefined) {
+					appendDivChannelElement(store(channels[i]));
+				}
+			}
+		});
 
   </script>
 </body>

@@ -1,6 +1,3 @@
-
-
-
 function store(namespace, data) {
 	if (arguments.length > 1) {
 		return localStorage.setItem(namespace, JSON.stringify(data));
