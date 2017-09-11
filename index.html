@@ -78,6 +78,7 @@
 		var footerButtons = document.querySelectorAll('.filter li a');
 		var allButton = footerButtons[0];
 		var onlineButton = footerButtons[1];
+		var offlineButton = footerButtons[2];
 
 		allButton.addEventListener('click', init);
 
@@ -87,6 +88,17 @@
 			//check the online channels on localStorage
 			for (var i = 0; i < channels.length; i++) {
 				if(store(channels[i]).stream !== undefined) {
+					appendDivChannelElement(store(channels[i]));
+				}
+			}
+		});
+
+		offlineButton.addEventListener('click', function() {
+			outter.innerHTML = '';
+
+			//check the online channels on localStorage
+			for (var i = 0; i < channels.length; i++) {
+				if(store(channels[i]).stream === undefined) {
 					appendDivChannelElement(store(channels[i]));
 				}
 			}
