@@ -215,14 +215,21 @@ header h1 {
   display: inline;
 }
 
+.filter li a.selected {
+  border-color: #afa3c4;
+}
+
 .filter li a {
   margin: 3px;
   padding: 3px 7px;
+  border: 1px solid transparent;
+  border-radius: 3px;
 }
 
 .filter li a:hover {
-  color: red;
+  border-color: rgba(175, 47, 47, 0.1);
 }
+
 
 #info {
   margin: 65px auto 30px auto;

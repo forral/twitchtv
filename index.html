@@ -17,7 +17,7 @@
 		</section>
 		<footer id="footer">
 			<ul class="filter">
-				<li><a href="#">All</a></li>
+				<li><a href="#" class="selected">All</a></li>
 				<li><a href="#">Online</a></li>
 				<li><a href="#">Offline</a></li>
 			</ul>
@@ -38,6 +38,10 @@
   <script src="template.js"></script>
   <script>
   	var outter = document.getElementById('out');
+  	var footerButtons = document.querySelectorAll('.filter li a');
+		var allButton = footerButtons[0];
+		var onlineButton = footerButtons[1];
+		var offlineButton = footerButtons[2];
 
 		// Array of Twitch Channels Names 
 		var channels = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', /*'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas',*/ 'GbossTheGamer'];
@@ -61,6 +65,10 @@
 
 		function init(){
 			outter.innerHTML = '';
+			onlineButton.classList.remove('selected');
+			offlineButton.classList.remove('selected');
+			allButton.classList.add('selected');
+
 			// Call the Twitch API for all the channels store in the channels array
 			channels.forEach(function(channel) {
 				callChannelAPI(channel);
@@ -75,15 +83,13 @@
 			outter.appendChild(currentDivEl);
 		}
 
-		var footerButtons = document.querySelectorAll('.filter li a');
-		var allButton = footerButtons[0];
-		var onlineButton = footerButtons[1];
-		var offlineButton = footerButtons[2];
-
 		allButton.addEventListener('click', init);
 
 		onlineButton.addEventListener('click', function(){
 			outter.innerHTML = '';
+			onlineButton.classList.add('selected');
+			offlineButton.classList.remove('selected');
+			allButton.classList.remove('selected');
 
 			//check the online channels on localStorage
 			for (var i = 0; i < channels.length; i++) {
@@ -95,6 +101,9 @@
 
 		offlineButton.addEventListener('click', function() {
 			outter.innerHTML = '';
+			onlineButton.classList.remove('selected');
+			offlineButton.classList.add('selected');
+			allButton.classList.remove('selected');
 
 			//check the online channels on localStorage
 			for (var i = 0; i < channels.length; i++) {
