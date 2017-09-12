@@ -32,6 +32,12 @@ function imgSource(data){
 	return data ? data : 'http://via.placeholder.com/100x100';
 }
 
+// returns the date formated without the T and the Z
+// 2017-09-12T08:37:08Z => 2017-09-12 08:37:08
+function formatedDate(string) {
+  return string.replace(/([A-Z])/g, ' ');
+}
+
 function channelDivEl(data) {
 
 	var textNode, titleElement;
@@ -69,7 +75,7 @@ function channelDivEl(data) {
 		divStreamContentEl.appendChild(streamDetailsElement);
 
 		var streamTitle = createStreamInfo(data.stream.game, 'Game');
-		var streamDate = createStreamInfo(data.stream.created_at, 'Date');
+		var streamDate = createStreamInfo(formatedDate(data.stream.created_at), 'Date');
 		var streamViewers = createStreamInfo(data.stream.viewers, 'Viewers');
 
 		var ulStreamEl = document.createElement('ul');
